@@ -3,10 +3,10 @@ library(jsonlite)
 
 #token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTQyODcyMjQsIm5iZiI6MTY2MzE4NTAyNCwiaWF0IjoxNjYzMTgzMjI0LCJqdGkiOiJDTTpjYXRfbWF0Y2g6bHQxMjM0NTYiLCJvcGVuX2lkIjoiIiwidWlkIjoyOTUxMzE3NSwiZGVidWciOiIiLCJsYW5nIjoiIn0.CHtCkoz5Y38IiEuA5HUah-ikI-dn-8uQPmvkP4oJnSE'
 
-uid = 43400952 #�����Ϸid
-num = 100       #ͨ�ش���
-times = 60     #ͨ��ʱ�䣨�룩
-sltime = 0     #���ʱ�䣨��/Ĭ��Ϊ0��
+uid = 100001 #你的游戏id
+num = 100       #通关次数
+times = 60     #通关时间（秒）
+sltime = 0     #间隔时间（秒/默认为0）
 
 addsheep <- function(uid,times,num,sltime){
 curl <- getCurlHandle()
@@ -14,7 +14,7 @@ urlo = paste("https://cat-match.easygame2021.com/sheep/v1/game/user_info?uid=",u
 tuuid = try(code <- getURL(url=urlo,curl = curl),silent=FALSE)
 if('try-error' %in% class(tuuid))
 {
-  print("��ȡ��ʱ") 
+  print("获取超时") 
 }else{
   uuid=fromJSON(tuuid)$data$wx_open_id
   token = fromJSON(postForm("https://cat-match.easygame2021.com/sheep/v1/user/login_tourist",uuid=uuid))$data$token
@@ -38,10 +38,10 @@ while(i <= num){
     print(response.code)
 
   if(response.code!=200){
-     print("ͨ��ʧ�ܣ�����ʧЧ���߷���������")
+     print("通关失败，参数失效或者服务器崩溃")
   }
   else{
-    print(paste("ͨ�سɹ�����",i,"��",sep=""))
+    print(paste("通关成功，第",i,"次",sep=""))
     i=i+1
     }
    }
