@@ -3,7 +3,7 @@ library(jsonlite)
 
 #token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTQyODcyMjQsIm5iZiI6MTY2MzE4NTAyNCwiaWF0IjoxNjYzMTgzMjI0LCJqdGkiOiJDTTpjYXRfbWF0Y2g6bHQxMjM0NTYiLCJvcGVuX2lkIjoiIiwidWlkIjoyOTUxMzE3NSwiZGVidWciOiIiLCJsYW5nIjoiIn0.CHtCkoz5Y38IiEuA5HUah-ikI-dn-8uQPmvkP4oJnSE'
 
-uid = 43400952 #你的游戏id
+uid = 1000001 #你的游戏id
 num = 20     #通关次数
 times = 60     #通关时间（秒）
 sltime = 0     #间隔时间（秒/默认为0）
